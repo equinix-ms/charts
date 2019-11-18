@@ -8,7 +8,7 @@ metadata:
     app: {{ template "prometheus-operator.name" $ }}-admission
 {{- include "prometheus-operator.labels" $ | indent 4 }}
 webhooks:
-  - name: prometheusrulemutate.monitoring.coreos.com
+  - name: prometheusrulemutate.{{ template "prometheus-operator.crdapigroup" . }}
     {{- if .Values.prometheusOperator.admissionWebhooks.patch.enabled  }}
     failurePolicy: Ignore
     {{- else }}
@@ -16,7 +16,7 @@ webhooks:
     {{- end }}
     rules:
       - apiGroups:
-          - monitoring.coreos.com
+          - {{ template "prometheus-operator.crdapigroup" . }}
         apiVersions:
           - "*"
         resources:

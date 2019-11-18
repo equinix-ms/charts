@@ -35,10 +35,10 @@ spec:
               kubectl delete prometheusrule --all;
               kubectl delete servicemonitor --all;
               sleep 10;
-              kubectl delete crd alertmanagers.monitoring.coreos.com;
-              kubectl delete crd prometheuses.monitoring.coreos.com;
-              kubectl delete crd prometheusrules.monitoring.coreos.com;
-              kubectl delete crd servicemonitors.monitoring.coreos.com;
-              kubectl delete crd podmonitors.monitoring.coreos.com;
+              kubectl delete crd alertmanagers.{{ template "prometheus-operator.crdapigroup" . }};
+              kubectl delete crd prometheuses.{{ template "prometheus-operator.crdapigroup" . }};
+              kubectl delete crd prometheusrules.{{ template "prometheus-operator.crdapigroup" . }};
+              kubectl delete crd servicemonitors.{{ template "prometheus-operator.crdapigroup" . }};
+              kubectl delete crd podmonitors.{{ template "prometheus-operator.crdapigroup" . }};
       restartPolicy: OnFailure
 {{- end }}

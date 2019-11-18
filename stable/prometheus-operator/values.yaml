@@ -1048,6 +1048,10 @@ prometheusOperator:
   ##
   cleanupCustomResource: false
 
+  ## Prometheus CRD API group name to be used if 'createCustomResource' is true
+  ##
+  # crdApiGroup: monitoring.coreos.com
+
   ## Labels to add to the operator pod
   ##
   podLabels: {}

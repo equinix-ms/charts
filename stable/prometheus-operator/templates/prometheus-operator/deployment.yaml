@@ -59,6 +59,7 @@ spec:
             - --config-reloader-image={{ .Values.prometheusOperator.configmapReloadImage.repository }}:{{ .Values.prometheusOperator.configmapReloadImage.tag }}
             - --config-reloader-cpu={{ .Values.prometheusOperator.configReloaderCpu }}
             - --config-reloader-memory={{ .Values.prometheusOperator.configReloaderMemory }}
+            - --crd-apigroup={{ template "prometheus-operator.crdapigroup" . }}
           ports:
             - containerPort: 8080
               name: http

@@ -80,3 +80,8 @@ heritage: {{ $.Release.Service | quote }}
     {{ default "default" .Values.alertmanager.serviceAccount.name }}
 {{- end -}}
 {{- end -}}
+
+{{/* Set the CRD Api group name */}}
+{{- define "prometheus-operator.crdapigroup" -}}
+    {{ default "monitoring.coreos.com" .Values.prometheusOperator.crdApiGroup }}
+{{- end -}}
